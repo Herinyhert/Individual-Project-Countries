@@ -5,6 +5,7 @@ const morgan = require('morgan');
 const routes = require('./routes/index.js');
 
 require('./db.js');
+require('./routes/getCountryDB')
 
 const server = express();
 
