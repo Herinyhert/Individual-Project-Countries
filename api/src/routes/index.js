@@ -21,13 +21,14 @@ router.post('/countries', async (req,res) =>{
             id: countries[i].id,
             flag: countries[i].flag,
             continent: countries[i].continent,
+            region: countries[i].region,
             capital: countries[i].capital,
             subregion: countries[i].subregion,
             area: countries[i].area,
             population:countries[i].population
         })
     }
-    console.log(countries);
+    //console.log(countries);
     res.status(200).send('base de datos cargada')
 })
 
@@ -37,3 +38,4 @@ router.use('/activities', ActivityDb);
 
 module.exports = router;
 
+/countries/

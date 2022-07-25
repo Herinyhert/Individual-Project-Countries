@@ -1,0 +1,40 @@
+.landing-page{
+    background-image: url("https://astelus.com/wp-content/viajes/viajar-por-el-mundo-una-experiencia-inolvidable-1152x759.jpg.webp");
+
+    background-attachment:initial;
+    opacity: 1;
+    background-position-y: 0%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 120%;
+    opacity: 1;
+    position:absolute;
+    top: 0px;
+    transition: opacity 0.3s linear 0s;
+    width: 100%;
+}
+
+.titlelanding{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    
+    font-size: 100px;
+    font-style:initial;
+    line-height: 120%;
+    display: block;
+    background-color: #fff7f7;;
+    opacity: 0.8;
+    
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: lighter;
+    
+
+    padding: 150px;
+    text-align: center;
+    text-transform: uppercase;
+    color: black;
+}
+
+

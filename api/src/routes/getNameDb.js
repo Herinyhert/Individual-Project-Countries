@@ -7,7 +7,7 @@ const router = Router();
 router.get('/', async(req,res)=>{
     const  name = req.query.name;
     
-    if(!name) return res.status(404).send("no recibe nombre")
+    //if(!name) return res.status(404).send("no recibe nombre")
     //console.log(name);
     const countriesT = name 
         ? await Country.findAll({ where: { name: { [Op.iLike]: name} } }) 
