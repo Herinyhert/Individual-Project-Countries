@@ -22,7 +22,7 @@ export function getCountries(){
 
 export function getNameCountries(name){
     return async function(dispatch){
-        let json = await axios.get("http://localhost:3001/countries?name=" + name);
+        let json = await axios.get("http://localhost:3001/countries?name=" + name,{});
         return dispatch({
             type: GET_NAME_COUNTRIES,
             payload: json.data

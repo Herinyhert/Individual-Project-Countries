@@ -4,27 +4,31 @@ import { useDispatch, useSelector } from "react-redux";
 import { datailCountries } from "../../../redux/actions";
 import { useEffect } from "react";
 
+import s from "./details.module.css"
+
 export default function Details(){
     
     const { id } = useParams();
-    let detail = useSelector((state) => state.countryDetail)
+    let detail = useSelector((state) => state.countriesDetail)
     const dispatch = useDispatch()
 
-    useEffect(()=>{dispatch(datailCountries(id))},[])
+    useEffect(()=>{dispatch(datailCountries(id))},[dispatch])
+    
 
     return(
-        <div>
-            <div>
+        <div className={s.container}>
+            <div className={s.details}>
+                <img className={s.imgdetailstyle} src={detail?.flag} alt="" />
                 <h1>{detail?.name}</h1>
-                <h5>Id:{detail?.id}</h5>
-                <h5>Continent:{detail?.region}</h5>
-                <img src={detail?.flag} alt="" />
-                <h5>SUBREGION:{detail?.subregion}</h5>
-                <h5>AREA:{detail?.area}</h5>
-                <h5>CAPITAL:{detail?.capital}</h5>
-                <h5>POBLACION:{detail?.population}</h5>
+                <h5>Id:  {detail?.id}</h5>
+                <h5>Continent:  {detail?.region}</h5>
+                <h5>Subregion:  {detail?.subregion}</h5>
+                <h5>Area:  {detail?.area}</h5>
+                <h5>Capital:  {detail?.capital}</h5>
+                <h5>Poblacion:  {detail?.population}</h5>
             </div>
             <div>
+                <br />
 
                 <h5>ACTIVIDADES</h5>
 

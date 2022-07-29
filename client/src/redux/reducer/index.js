@@ -41,7 +41,7 @@ export default function countriesReducer( state = initialState, action){
         case GET_NAME_COUNTRIES: {
             return {
                 ...state,
-                country: action.payload
+                allCountries: action.payload
             }
         }
         case DETAIL_COUNTRIES:
@@ -57,24 +57,18 @@ export default function countriesReducer( state = initialState, action){
         }
         case ORDER_NAME:{
             const orderName = action.payload === "asc"
-                ? state.country.sort(function (a,b){
-                    if(a.name > b.name){
-                        return 1;
-                    }
-                    if(b.name > a.name){
-                        return-1
-                    }
-                    return 0;
-                })
-                : state.country.sort(function (a,b){
-                    if(a.name > b.name){
-                        return -1;
-                    }
-                    if(b.name > a.name){
-                        return 1
-                    }
-                    return 0
-                })
+                ? state.country.sort((a,b) => a.name.localeCompare(b.name))
+                // {
+                //     if(a.name > b.name){
+                //         return 1;
+                //     }
+                //     if(b.name > a.name){
+                //         return-1
+                //     }
+                //     return 0;
+                // }
+                : state.country.sort((a,b) => b.name.localeCompare(a.name))
+
                 return {
                     ...state,
                     country: orderName

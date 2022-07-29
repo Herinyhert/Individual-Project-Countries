@@ -4,7 +4,7 @@ import './landingStyle.css';
 
 export default function LandingPage(){
     return(
-        <div className="landing-page">
+        <div className="">
         <h1 className="titlelanding" >COUNTRIES</h1>
         <Link to="/home">
             <button>INGRESAR</button>

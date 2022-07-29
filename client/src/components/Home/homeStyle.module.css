@@ -1,0 +1,87 @@
+.home{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.NavSup{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    height: 50px;
+}
+
+.NavSup h1{
+    float: left;
+    margin-top: -5px;
+    color: #F4F4F4;
+}
+.NavSup button{
+    float: left,none;
+    margin-top: -45px;
+    margin-left: 200px,none;
+}
+
+.NavLeft{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+
+    margin-top: -238px;
+    height: 520px;
+    width: 100%;
+    
+}
+
+.OrderCountries{
+    margin-top: 10px;
+    text-align: left;
+    flex-direction: column;
+    background-color:#F4F4F4;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
+                rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 
+                rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+}
+.FilterCountries{
+margin-top: 10px;
+text-align: left;
+background-color:#F4F4F4;
+box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
+            rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 
+            rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.search{
+    margin-top: 10px;
+box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
+            rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 
+            rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.cardd2{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+
+    margin-top: -238px;
+     width:800px;
+    border-radius: 20px;
+     background-color: #fff7f7;;
+     opacity: 0.8;
+}
+
+.paginado{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+
+    height: 50px;
+}

@@ -1,0 +1,67 @@
+.card{
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    float: left;
+    margin: 10px;
+    width: 150px;
+    height: 120px;
+    background-color:#f5fcf1;
+    border-radius: 20px;
+    border: 1px solid black;
+    
+    background-color:#ffffff;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
+                rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 
+                rgba(10, 37, 64, 0.35) 0px -2px 6px 0px;
+
+    display: grid;
+    grid-template-columns: repeat(2);
+    grid-template-rows: repeat(3);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
+}
+
+.imgstyle{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 1px;
+    width: 40px;    
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+h4 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    color: black;
+    font-size: 11px;
+    text-align: center;
+    margin-top: 0px;
+}
+ p {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+
+    color: black;
+    font-size: 12px;
+    margin-top: 30px;
+}
+
+.buttonCard{
+    position: relative;
+    border-radius: 20px;
+    margin-left: 40px;
+    margin-top: -50px;
+}

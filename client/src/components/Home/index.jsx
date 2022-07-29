@@ -4,19 +4,25 @@ import { useState, useEffect } from "react";
 import { getCountries, filterCountriesContinent, orderName } from "../../redux/actions"
 import Card from "./Card";
 import Paginado from "./Paginado";
+import SearhBar from "./SearhBar";
 import { Link } from "react-router-dom";
-import "../Home/homeStyle.css"
-
+import s from "../Home/homeStyle.module.css"
 
 export default function Home(){
 
     const dispach= useDispatch()
     const allTodo= useSelector(state=> state.allCountries)
     const [currentPage, setCurrentPage] = useState(1)
-    const [countriesPorPage, setCountriesPorPage] = useState(10)
-    const indexOfLastCountries = currentPage * countriesPorPage // 9
-    const indexOfFristCountries = indexOfLastCountries - countriesPorPage //0
-    const currentCountries = allTodo.slice(indexOfFristCountries, indexOfLastCountries)
+    //const countriesPorPage  = currentPage === 1 ? 9 : 10
+    // const indexOfLastCountries = currentPage * countriesPorPage // 9
+    // const indexOfFristCountries = indexOfLastCountries - countriesPorPage //0
+    // const currentCountries = allTodo.slice(indexOfFristCountries, indexOfLastCountries)
+    let currentCountries
+    if(currentPage === 1){
+        currentCountries = allTodo.slice(0, 9)
+    }else{
+        currentCountries = allTodo.slice(9 + (currentPage - 2) * 10, 19 + (currentPage - 2) * 10 )
+    }
     const [order, setOrder]= useState("")
 
     
@@ -43,59 +49,79 @@ export default function Home(){
     }
 
     return(
-        <div>
-            <div>
-                <Link to="/activity">Crear actividad</Link>
-                <h1>Estoy en Home</h1>
+        <div className={s.home}>
+
+            <div className={s.NavSup}>
+                {/* <Link to="/activity">Crear actividad</Link> */}
+                <h1>Countries</h1>
                 <button onClick={e => { handleOnClick(e) }}> volver</button>
             </div>
-            <div>
-                <select onChange={e => handleNameSort(e)}>
-                    <option value="All">Todos</option>
-                    <option value="asc">Ascendente</option>
-                    <option value="desc">Descendente</option>
-                </select>
-                <select onChange={e => handleFilterContinent(e)}>
-                    <option value="All">Todos</option>
-                    <option value="North America">America Norte</option>
-                    <option value="South America">America Sur</option>
-                    <option value="Europe">Europa</option>
-                    <option value="Asia">Asia</option>
-                    <option value="Africa">Africa</option>
-                    <option value="Oceania">Oceania</option>
-                    <option value="Antarctica">Antartida</option>
-                </select>
-                <select>
-                    <option value="All">Selectione</option>
+
+            <div className={s.NavLeft}>
+                <div className={s.search}>
+                    <SearhBar />
+                </div>
+                <div className={s.OrderCountries}>
+                    <label> Ordenamiento: </label>
+                    <br />
+                    <input type="radio" name="ordenamiento" value="asc" onChange={e => handleNameSort(e)} />Ascendente
+                    <br />
+                    <input type="radio" name="ordenamiento" value="des" onChange={e => handleNameSort(e)} />Descendente
+                </div>
+                <div className={s.FilterCountries}>
+                    <label>Filter by Continent:</label>
+                        <br />
+                        <input type="radio" name="FilterCountries" value="All" onChange={e => handleOnClick(e)} />Todos
+                        <br />
+                        <input type="radio" name="FilterCountries" value="Antarctica" onChange={e => handleFilterContinent(e)} />Antartida
+                        <br />
+                        <input type="radio" name="FilterCountries" value="Oceania" onChange={e => handleFilterContinent(e)} />Oceania
+                        <br />
+                        <input type="radio" name="FilterCountries" value="Africa" onChange={e => handleFilterContinent(e)} />Africa
+                        <br />
+                        <input type="radio" name="FilterCountries" value="Asia" onChange={e => handleFilterContinent(e)} />Asia
+                        <br />
+                        <input type="radio" name="FilterCountries" value="Europe" onChange={e => handleFilterContinent(e)} />Europa
+                        <br />
+                        <input type="radio" name="FilterCountries" value="South America" onChange={e => handleFilterContinent(e)} />America Sur
+                        <br />
+                        <input type="radio" name="FilterCountries" value="North America" onChange={e => handleFilterContinent(e)} />America Norte
+                        <br />
                     
-                </select>
+                    <select>
+                        <option value="All">Selectione</option>
+                    </select>
+                </div>
             </div>
-           <div>
-           <Paginado
-            countriesPorPage ={countriesPorPage}
-            allTodo={allTodo.length}
-            paginado={paginado}
-            />
-           </div>
-            {
+            <div className={s.paginado}>
+                <Paginado
+                    countriesPorPage={10}
+                    allTodo={allTodo.length}
+                    paginado={paginado}
+                />
+            </div>
+           <div className={s.cardd2}>
+           {
                 currentCountries?.map(el => {
                     return (
                         <fragment>
-                            <Link to={"/home" + el.id}>
+                            <Link to={`/countries/${el.id}`}>
                                 <Card
                                     key={el.id}
                                     name={el.name}
                                     flag={el.flag}
                                     region={el.region}
+                                    capital={el.capital}
+                                    id={el.id}
                                 />
                             </Link>
                         </fragment>
                     )
-                    
+
                 }
                 )
             }
-            <p>estoy en card</p>
+           </div>
         </div>
     )
 }
