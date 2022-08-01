@@ -75,6 +75,7 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     border-radius: 20px;
      background-color: #fff7f7;;
      opacity: 0.8;
+     backdrop-filter: blur(5px);
 }
 
 .paginado{

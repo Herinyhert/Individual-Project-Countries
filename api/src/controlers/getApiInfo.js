@@ -2,8 +2,9 @@ const axios = require('axios');
 const { Country, Activity } = require('../db')
 
 const getApiInfo = async () => {
-    const apiUrl = await axios.get('https://restcountries.com/v3/all');
-    const apiInfo = await apiUrl.data.map(e =>{
+    try{
+        const apiUrl = await axios.get('https://restcountries.com/v3/all');
+        const apiInfo = await apiUrl.data.map(e =>{
         return{
             id: e.cca3,
 			name: e.name.common,
@@ -16,7 +17,10 @@ const getApiInfo = async () => {
             continent: e.continents[0]
         }
     })
-    return apiInfo;
+        await Country.bulkCreate(apiInfo)
+    }catch(error){
+        console.log(error)
+    }
 }
 
 

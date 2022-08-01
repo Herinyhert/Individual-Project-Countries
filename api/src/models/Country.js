@@ -14,6 +14,7 @@ module.exports = (sequelize) => {
     area:{ type: DataTypes.FLOAT, },
     population:{ type: DataTypes.INTEGER, },
   },{
-    timetamps: false 
+    timetamps: false,
+    freezeTableName:true 
   });
 };

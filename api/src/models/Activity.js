@@ -1,12 +1,13 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-    sequelize.define('activity', {
+    sequelize.define('Activity', {
         name:{ type: DataTypes.STRING, allowNull: false },
-        difficulty:{ type: DataTypes.INTEGER, validate:{min:1, max: 5} },
+        difficulty:{ type: DataTypes.INTEGER, validate:{ min: 1, max: 5}, allowNull: false},
         duration:{ type: DataTypes.STRING, allowNull: false },
-        season:{ type: DataTypes.ENUM('Verano', 'Otoño', 'Invierno', 'Primavera')},
+        season:{ type: DataTypes.ENUM('summer', 'autumn', 'winter', 'spring')},
     },{
-        timetamps: false 
+        timetamps: false,
+        freezeTableName:true 
       })
 }

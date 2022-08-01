@@ -2,7 +2,6 @@ import axios from "axios";
 
 import { 
     GET_COUNTRIES,
-    GET_COUNTRY,
     GET_NAME_COUNTRIES,
     FILTER_ACTIVITY,
     CREATE_ACTIVITY,
@@ -30,36 +29,36 @@ export function getNameCountries(name){
     }
 }
 
-export function getCountry(countryId){
-    return async function(dispatch){
-        const activities = await axios
-            .get(`http://localhost:3001/countries/${countryId}`)
-            .then(({ data }) => { return data.activities });
+// export function getCountry(countryId){
+//     return async function(dispatch){
+//         const activities = await axios
+//             .get(`http://localhost:3001/countries/${countryId}`)
+//             .then(({ data }) => { return data.activities });
 
-        const country = await axios
-            .get(`http://localhost:3001/countries/${countryId}`)
-            .then(({ data }) => {
-                return{
-                    id: data[0].cca3,
-					name: data[0].name.common,
-					flag: data[0].flags.svg,
-					region: data[0].region,
-					subregion: data[0].subregion,
-					capital: data[0].capital,
-					area: data[0].area,
-					population: data[0].population,
-                };
-            } );
+//         const country = await axios
+//             .get(`http://localhost:3001/countries/${countryId}`)
+//             .then(({ data }) => {
+//                 return{
+//                     id: data[0].cca3,
+// 					name: data[0].name.common,
+// 					flag: data[0].flags.svg,
+// 					region: data[0].region,
+// 					subregion: data[0].subregion,
+// 					capital: data[0].capital,
+// 					area: data[0].area,
+// 					population: data[0].population,
+//                 };
+//             } );
 
-        const union = { ...country, activities };
+//         const union = { ...country, activities };
 
-        return dispatch({ type: GET_COUNTRY, payload: union })
-    }
-}
+//         return dispatch({ type: GET_COUNTRY, payload: union })
+//     }
+// }
 
 export function getAllActivities(){
     return function(dispatch){
-        return axios.get('http://localhost:3001/activity')
+        return axios.get('http://localhost:3001/activities')
         .then(getAllActivitiers => { return dispatch({ type: GET_ALL_ACTIVITIES, payload: getAllActivitiers.data})})}
 }
 
@@ -70,9 +69,10 @@ export function datailCountries(payload){
 }
 
 export function createActivity(payload){
-    return async function(dispatch){
-        let json = await axios.post("http://localhost:3001/activity", payload);
-        return dispatch({ type: CREATE_ACTIVITY, payload: json.data })
+    return async function(){
+        let json = await axios.post("http://localhost:3001/activities", payload);
+        // return dispatch({ type: CREATE_ACTIVITY, payload: json.data })
+        return json
     }
 }
 
@@ -91,3 +91,4 @@ export function filterCountriesContinent(payload){
 export function filterByActivity(payload){
     return{ type: FILTER_ACTIVITY, payload }
 }
+

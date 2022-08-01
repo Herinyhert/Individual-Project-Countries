@@ -7,10 +7,10 @@ const router = Router();
 
 router.get('/:id', async (req,res) => {
     const  countryId  = req.params.id;
-    let countries = await Country.findByPk(countryId);
+    let countriesss = await Country.findByPk(countryId);
 
-    countries
-        ? res.status(200).send(countries)
+    countriesss
+        ? res.status(200).send(countriesss)
         : res.status(404).send('no existe id buscado');
 });
 

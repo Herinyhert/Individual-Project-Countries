@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-import { getCountries, filterCountriesContinent, orderName } from "../../redux/actions"
+import { getCountries, filterCountriesContinent, orderName, orderPopulation } from "../../redux/actions"
 import Card from "./Card";
 import Paginado from "./Paginado";
 import SearhBar from "./SearhBar";
@@ -48,13 +48,18 @@ export default function Home(){
         setOrder(`Ordenado ${e.target.value}`)
     }
 
+    function handlePopulation(e){
+        e.preventDefault();
+        dispach(orderPopulation(e.target.value))
+        setCurrentPage(1)
+        setOrder(`Ordenado ${e.target.value}`)
+    }
+
     return(
         <div className={s.home}>
 
-            <div className={s.NavSup}>
-                {/* <Link to="/activity">Crear actividad</Link> */}
-                <h1>Countries</h1>
-                <button onClick={e => { handleOnClick(e) }}> volver</button>
+            <div className={s.NavSup}><h1>Countries</h1>
+                <Link to="/activities"><button> Crear</button></Link>
             </div>
 
             <div className={s.NavLeft}>
@@ -67,6 +72,13 @@ export default function Home(){
                     <input type="radio" name="ordenamiento" value="asc" onChange={e => handleNameSort(e)} />Ascendente
                     <br />
                     <input type="radio" name="ordenamiento" value="des" onChange={e => handleNameSort(e)} />Descendente
+                </div>
+                <div className={s.OrderCountries}>
+                    <label> Population: </label>
+                    <br />
+                    <input type="radio" name="ordenamiento1" value="asc" onChange={e => handlePopulation(e)} />Ascendente
+                    <br />
+                    <input type="radio" name="ordenamiento1" value="des" onChange={e => handlePopulation(e)} />Descendente
                 </div>
                 <div className={s.FilterCountries}>
                     <label>Filter by Continent:</label>
@@ -113,6 +125,7 @@ export default function Home(){
                                     region={el.region}
                                     capital={el.capital}
                                     id={el.id}
+                                    population={el.population}
                                 />
                             </Link>
                         </fragment>
