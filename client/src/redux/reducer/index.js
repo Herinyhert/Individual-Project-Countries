@@ -15,6 +15,7 @@ export const initialState = {
     country: [],
     allCountries: [],
     countriesAux: [],
+    activity:[],
     allActivity: [],
     countriesDetail: {},
     activityFilter:[]
@@ -54,7 +55,7 @@ export default function countriesReducer( state = initialState, action){
             return { ...state }
         }
         case GET_ALL_ACTIVITIES:{
-            return { ...state, allActivity: action.payload }
+            return { ...state, activity: action.payload }
         }
         case ORDER_NAME:{
             const orderName = action.payload === "asc"
@@ -73,11 +74,8 @@ export default function countriesReducer( state = initialState, action){
                 return { ...state, allCountries: orderName }
         }
         case ORDER_POPULATION:{
-            // const orderPopulation = action.payload === "asc"
-            //     ? state.allCountries.sort((a,b) => Number(a.population.localeCompare(Number(b.population))))
-            //     : state.allCountries.sort((a,b) => Number(b.population.localeCompare(Number(a.population))))
-            //     return { ...state, allCountries: orderPopulation}
-            let orderPopulationArray = action.payload === "asc" ?
+            let orderPopulationArray = action.payload === "asc" 
+                    ?
                 state.allCountries.sort(function (a, b) {
                     if (Number(a.population) > Number(b.population)) {
                         return 1;
@@ -102,6 +100,22 @@ export default function countriesReducer( state = initialState, action){
             }
 
         }
+        case FILTER_ACTIVITY:{
+            const allActivity = state.country
+            //console.log(allActivity)
+            const activitiesFiltered = allActivity.filter((c) => 
+            { return c.Activities.find((c) => { return c.name === action.payload});});
+            console.log("segundo",activitiesFiltered)
+            
+            if (action.payload === 'All') {
+                return { ...state, allCountries: allActivity }
+            } else {
+                return {
+                    ...state,
+                    allCountries: activitiesFiltered
+                }
+    }
+}
 
         default:
             return state;

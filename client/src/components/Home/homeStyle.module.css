@@ -1,28 +1,30 @@
 .home{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(2);
+    grid-template-rows: repeat(3);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
 }
 
 .NavSup{
+    margin-top: 5px;
+    padding: 10px;
+    height: 10px;
+        
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 2;
-
-    height: 50px;
 }
 
 .NavSup h1{
     float: left;
-    margin-top: -5px;
+    margin-top: -10px;
     color: #F4F4F4;
 }
 .NavSup button{
     float: left,none;
-    margin-top: -45px;
+    margin-top: -45px, none;
     margin-left: 200px,none;
 }
 
@@ -32,7 +34,7 @@
     grid-row-start: 2;
     grid-row-end: 3;
 
-    margin-top: -238px;
+    margin-top: -238px,none;
     height: 520px;
     width: 100%;
     
@@ -40,6 +42,11 @@
 
 .OrderCountries{
     margin-top: 10px;
+    margin-left: 10%;
+    padding-left: 20px;
+    width: 100%;
+    
+    border-radius: 10px 40px;
     text-align: left;
     flex-direction: column;
     background-color:#F4F4F4;
@@ -50,7 +57,12 @@
 }
 .FilterCountries{
 margin-top: 10px;
+margin-left: 10%;
+padding-left: 20px;
+width: 100%;
+
 text-align: left;
+border-radius: 10px 40px;
 background-color:#F4F4F4;
 box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
             rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 
@@ -59,30 +71,90 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
 
 .search{
     margin-top: 10px;
-box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
+    margin-left:50px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
             rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 
             rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 .cardd2{
     grid-column-start: 2;
-    grid-column-end: 3;
+    grid-column-end: 2;
     grid-row-start: 2;
     grid-row-end: 3;
 
-    margin-top: -238px;
-     width:800px;
+    margin-top: 30px;
+    margin-left: 10%;
+    padding: 5px;
+    width:750px;
+
     border-radius: 20px;
-     background-color: #fff7f7;;
-     opacity: 0.8;
-     backdrop-filter: blur(5px);
+    background-color: #fff7f7;
+    opacity: 0.8;
+    backdrop-filter: blur(5px);
 }
 
 .paginado{
+    /* margin-top: 40px,none;
+    margin-left: 200px;
+    height: 50px,none; */
+        
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 3;
     grid-row-end: 4;
-
-    height: 50px;
 }
+
+.filterActivity{
+    margin-top: 10px;
+    margin-left: 10%;
+    padding-left: 20px;
+    width: 100%;
+    height: auto;
+    
+    text-align: left;
+    border-radius: 10px 40px;
+    background-color:#F4F4F4;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
+                rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 
+                rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+button {
+    padding: 5px 15px;
+    border: unset;
+    border-radius: 15px;
+    color: #212121,none;
+    z-index: 1;
+    background: #e8e8e8;
+    position: relative;
+    font-weight: 1000;
+    font-size: 12px;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms;
+    overflow: hidden;
+   }
+   
+   button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+    background-color: #39bda7;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms
+   }
+   
+   button:hover {
+    color: #e8e8e8;
+   }
+   
+   button:hover::before {
+    width: 100%;
+   }

@@ -57,9 +57,9 @@ export function getNameCountries(name){
 // }
 
 export function getAllActivities(){
-    return function(dispatch){
-        return axios.get('http://localhost:3001/activities')
-        .then(getAllActivitiers => { return dispatch({ type: GET_ALL_ACTIVITIES, payload: getAllActivitiers.data})})}
+    return async (dispatch) => {
+        var json = await axios.get('http://localhost:3001/activities')
+       return dispatch({ type: GET_ALL_ACTIVITIES, payload: json.data})}
 }
 
 export function datailCountries(payload){
@@ -71,8 +71,8 @@ export function datailCountries(payload){
 export function createActivity(payload){
     return async function(){
         let json = await axios.post("http://localhost:3001/activities", payload);
-        // return dispatch({ type: CREATE_ACTIVITY, payload: json.data })
-        return json
+        return ({ type: CREATE_ACTIVITY, payload: json.data })
+        //return json
     }
 }
 

@@ -1,13 +1,14 @@
 const { Router } = require('express');
 
-const { Country } = require('../db')
+const { Country, Activity } = require('../db');
+
 const router = Router();
 
 
 
 router.get('/:id', async (req,res) => {
     const  countryId  = req.params.id;
-    let countriesss = await Country.findByPk(countryId);
+    let countriesss = await Country.findByPk(countryId, {include: Activity});
 
     countriesss
         ? res.status(200).send(countriesss)

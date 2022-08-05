@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-import { getCountries, filterCountriesContinent, orderName, orderPopulation } from "../../redux/actions"
+import { getCountries, filterCountriesContinent, orderName, orderPopulation, filterByActivity, getAllActivities } from "../../redux/actions"
 import Card from "./Card";
 import Paginado from "./Paginado";
 import SearhBar from "./SearhBar";
@@ -12,6 +12,7 @@ export default function Home(){
 
     const dispach= useDispatch()
     const allTodo= useSelector(state=> state.allCountries)
+    const activities = useSelector(state => state.activity)
     const [currentPage, setCurrentPage] = useState(1)
     //const countriesPorPage  = currentPage === 1 ? 9 : 10
     // const indexOfLastCountries = currentPage * countriesPorPage // 9
@@ -31,6 +32,7 @@ export default function Home(){
     const paginado = (pageNumber) => setCurrentPage(pageNumber)
 
     useEffect(()=>{dispach(getCountries())},[dispach])
+    useEffect(()=>{dispach(getAllActivities())},[dispach])
 
     function handleOnClick(e){
         e.preventDefault();
@@ -53,6 +55,11 @@ export default function Home(){
         dispach(orderPopulation(e.target.value))
         setCurrentPage(1)
         setOrder(`Ordenado ${e.target.value}`)
+    }
+
+    function handlefilterByActivities(e){
+        e.preventDefault();
+        dispach(filterByActivity(e.target.value))
     }
 
     return(
@@ -99,9 +106,12 @@ export default function Home(){
                         <br />
                         <input type="radio" name="FilterCountries" value="North America" onChange={e => handleFilterContinent(e)} />America Norte
                         <br />
-                    
-                    <select>
-                        <option value="All">Selectione</option>
+                </div>
+                <div className={s.filterActivity}>
+                    <select onChange={e => handlefilterByActivities(e)}>
+                        <option value="" disable selected hidden>{""}Actividades turísticas</option>
+                        <option value="All">Todas</option>
+                        {activities.map((a) => (<option key={a.id} value={a.name}> {a.name} </option>))}
                     </select>
                 </div>
             </div>
@@ -110,6 +120,7 @@ export default function Home(){
                     countriesPorPage={10}
                     allTodo={allTodo.length}
                     paginado={paginado}
+                    // currentPage={currentPage}
                 />
             </div>
            <div className={s.cardd2}>

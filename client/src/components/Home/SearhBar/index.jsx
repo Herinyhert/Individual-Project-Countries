@@ -19,20 +19,30 @@ export default function SearhBar(){
     }
 
     return(
-        <div className={s.SearhBar}>
-            <input 
-            type="text"
-            placeholder="Ingresa el Pais"
-            value = {name}
-            onChange = { (e) => handleInputChange(e) }
-            />
+        // <div className={s.SearhBar}>
+        //     <input 
+        //     type="text"
+        //     placeholder="Ingresa el Pais"
+        //     value = {name}
+        //     onChange = { (e) => handleInputChange(e) }
+        //     />
 
-            <button 
-                type="submit"
-                onClick={ (e) => handleSubmit(e) }
+        //     <button 
+        //         type="submit"
+        //         onClick={ (e) => handleSubmit(e) }
+        //         > Buscar</button>
+
+        // </div>
+            <div className={s.inputGroup}>
+                <input required="" type="text" name="text" autocomplete="off" className={s.inputtt} value={name} 
+                    onChange={(e) => handleInputChange(e)} />
+                <label className={s.userLabel}>Ingresa el Pais</label>
+                <button
+                    className={s.button2}
+                    type="submit"
+                    onClick={(e) => handleSubmit(e)}
                 > Buscar</button>
-
-        </div>
+            </div>
     )
 
 }

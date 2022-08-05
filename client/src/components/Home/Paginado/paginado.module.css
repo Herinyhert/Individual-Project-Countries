@@ -1,16 +1,15 @@
 .buttonpage{
-    margin: 5px;
-    display: inline-block;
-  -webkit-appearance: none;
-  border: 1px solid black;
-  border-radius: 5px;
+  margin-left: 5px;
   padding: 5px;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-clip: padding-box;
+  display: inline-block;
+  border: 1px solid #4f4f4f;
+  border-radius: 50%;
+  transition: all 0.2s ease-in;
   position: relative;
+  overflow: hidden;
+  font-size: 10px;
   color: black;
-  
+  z-index: 1;
 }
 
 .divpaginado{
