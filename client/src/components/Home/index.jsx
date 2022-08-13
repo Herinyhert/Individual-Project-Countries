@@ -7,7 +7,8 @@ import Paginado from "./Paginado";
 import SearhBar from "./SearhBar";
 import { Link } from "react-router-dom";
 import s from "../Home/homeStyle.module.css";
-import img from '../../img/git1.png'
+import github from '../../img/git1.png'
+import linkeding from '../../img/descarga.png'
 
 export default function Home() {
 
@@ -69,7 +70,8 @@ export default function Home() {
     return (
         <div className={s.home}>
             <div>
-                <img src={img} alt="gitHub" className={s.imggit}/>
+                <a href="http://github.com/Herinyhert"><img src={github} alt="gitHub" className={s.imggit}/></a>
+                <a href="https://www.linkedin.com/in/herinyhert-martinez-7b5183126/"><img src={linkeding} alt="linquedin" className={s.imglink}/></a>
             </div>
             <div className={s.NavSup}><h1>Countries</h1>
                 <Link to="/activities"><button>New Activity</button></Link>

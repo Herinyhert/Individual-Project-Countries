@@ -49,6 +49,6 @@ describe("ruta post", () => {
     it("Deberia de recibir un name por query y traer solo los countries que tengan coincidencia exacta con ese parametro", async () => {
       const res = await agent.get("/countries?name=Argentina");
       //console.log("estoy si aqui", res.body[0].name)
-      expect(res.body[0].name).to.be.deep.equal("Argentina")
+      expect(res.body[0].name).to.be.equal("Argentina")
     })
 })
