@@ -1,41 +1,21 @@
+export default function validate(input) {
+	let errors = {};
 
-export default function Validate({input, countryId}) {
-    let error = {};
-    if (!input.name) { error.name = "Debe ingresar un Nombre" }
-    else if (!input.dificulty) { error.dificulty = "Debe identificar la dificultad" }
-    else if (input.dificulty > 5 || input.dificulty < 1) { error.dificulty = "Solo puede ser en rango de 1 a 5" }
-    else if (!input.duration) { error.duration = "Debe identificar la duration" }
-    else if (input.duration > 24) { error.duration = "La duracion no puede ser mayor a 24 horas" }
-    else if (!input.season) { error.season = "Debe identificar un Season" }
-    else if (!countryId.length) { error.id = "Debe ingresar al menos un país" }
+	if (!input.name) { errors.name = "Name is required";} 
+    else if (!/^[A-Za-z,.á-ú\s]{5,40}$/.test(input.name)) { errors.name = "Name must be between 5 and 40 characters that are not numbers or special characters"; }
 
-    return error;
+	else if (!input.difficulty) { errors.difficulty = "Difficulty is required";} 
+    //else if (!(input.expertise >= 1 && input.expertise <= 5)) { errors.expertise = "Difficulty must be a number between 1 and 5"; }
 
+	else if (!input.duration) { errors.duration = "Duration is required"; } 
+
+    
+    //else if (input.duration > 24) { errors.duration = "Should not lasts more than 24 hours"; } 
+    //else if (input.duration < 0) { errors.duration = "Time cannot be negative"; }
+
+    else if (input.season.length < 1 ) { errors.season = "You must identify at least one season"; }
+    else if (input.country.length < 1 ) { errors.id = "You must enter at least one country"; }
+
+
+	return errors;
 }
-
-// function validate({ name, value }) {
-//     let error;
-//     if (name === "email") {
-//       if (!value.endsWith(".com")) {
-//         error = "El email debe terminar con '.com'";
-//       }
-//       if (!value.includes("@")) {
-//         error = "El email debe de contener una '@'";
-//       }
-//     }
-//     if (name === "password") {
-//       if (value.length < 8) {
-//         error = "El password debe de ser de almenos 8 caracteres";
-//       }
-//       if (!/\d/.test(value)) {
-//         error = "El password debe de contener un numero";
-//       }
-//       if (!/[A-Z]/.test(value)) {
-//         error = "El password debe de contener una letra Mayuscula";
-//       }
-//       if (!/[a-z]/.test(value)) {
-//         error = "El password debe de contener una letra minuscula";
-//       }
-//     }
-//     return { [name]: error };
-//   }

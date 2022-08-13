@@ -9,7 +9,8 @@ import {
     GET_ALL_ACTIVITIES,
     DETAIL_COUNTRIES,
     FILTER_CONTINENT,
-    ORDER_NAME
+    ORDER_NAME,
+    SET_ERROR
 } from "./actionType";
 
 //todos los paises
@@ -21,40 +22,18 @@ export function getCountries(){
 
 export function getNameCountries(name){
     return async function(dispatch){
-        let json = await axios.get("http://localhost:3001/countries?name=" + name,{});
-        return dispatch({
-            type: GET_NAME_COUNTRIES,
-            payload: json.data
-        })
+        try {
+            let json = await axios.get("http://localhost:3001/countries?name=" + name,{});
+            return dispatch({
+                type: GET_NAME_COUNTRIES,
+                payload: json.data
+            })            
+        } catch (error) {
+            dispatch({type: SET_ERROR, payload: error})
+            //console.log("estoy aqui", error)
+        }
     }
 }
-
-// export function getCountry(countryId){
-//     return async function(dispatch){
-//         const activities = await axios
-//             .get(`http://localhost:3001/countries/${countryId}`)
-//             .then(({ data }) => { return data.activities });
-
-//         const country = await axios
-//             .get(`http://localhost:3001/countries/${countryId}`)
-//             .then(({ data }) => {
-//                 return{
-//                     id: data[0].cca3,
-// 					name: data[0].name.common,
-// 					flag: data[0].flags.svg,
-// 					region: data[0].region,
-// 					subregion: data[0].subregion,
-// 					capital: data[0].capital,
-// 					area: data[0].area,
-// 					population: data[0].population,
-//                 };
-//             } );
-
-//         const union = { ...country, activities };
-
-//         return dispatch({ type: GET_COUNTRY, payload: union })
-//     }
-// }
 
 export function getAllActivities(){
     return async (dispatch) => {
@@ -72,7 +51,6 @@ export function createActivity(payload){
     return async function(){
         let json = await axios.post("http://localhost:3001/activities", payload);
         return ({ type: CREATE_ACTIVITY, payload: json.data })
-        //return json
     }
 }
 

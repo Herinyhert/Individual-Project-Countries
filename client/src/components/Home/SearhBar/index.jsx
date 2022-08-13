@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getNameCountries } from "../../../redux/actions";
 
 import s from "./SearhBar.module.css"
 
 export default function SearhBar(){
 
+    const allTodo= useSelector(state=> state.country)
+    
     const dispatch = useDispatch()
     const [name, setName] = useState("")
 
@@ -13,35 +15,27 @@ export default function SearhBar(){
 
     function handleSubmit(e){
         e.preventDefault()
-        dispatch(getNameCountries(name))
-        console.log(name)
-        setName("")
+           dispatch(getNameCountries(name))
+           console.log(name)
+           setName("")
     }
 
+
     return(
-        // <div className={s.SearhBar}>
-        //     <input 
-        //     type="text"
-        //     placeholder="Ingresa el Pais"
-        //     value = {name}
-        //     onChange = { (e) => handleInputChange(e) }
-        //     />
-
-        //     <button 
-        //         type="submit"
-        //         onClick={ (e) => handleSubmit(e) }
-        //         > Buscar</button>
-
-        // </div>
             <div className={s.inputGroup}>
                 <input required="" type="text" name="text" autocomplete="off" className={s.inputtt} value={name} 
-                    onChange={(e) => handleInputChange(e)} />
-                <label className={s.userLabel}>Ingresa el Pais</label>
+                    onChange={(e) => handleInputChange(e)} list="idea" />
+                <label className={s.userLabel}>Enter the country</label>
+                <datalist id="idea">
+                    {allTodo.map((country, i) => (
+                        <option key={i} value={country.name} />
+                    ))}
+                </datalist>
                 <button
                     className={s.button2}
                     type="submit"
                     onClick={(e) => handleSubmit(e)}
-                > Buscar</button>
+                >Search</button>
             </div>
     )
 

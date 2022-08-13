@@ -16,19 +16,19 @@ const router = Router();
 
 // router.get('/countries', async (req,res) =>{
 //     const countries = await getApiInfo()
-//     for(var i=0; i < countries.length; i++) {
-//         Country.create({
-//             name: countries[i].name,
-//             id: countries[i].id,
-//             flag: countries[i].flag,
-//             continent: countries[i].continent,
-//             region: countries[i].region,
-//             capital: countries[i].capital,
-//             subregion: countries[i].subregion,
-//             area: countries[i].area,
-//             population:countries[i].population
-//         })
-//     }
+//     // for(var i=0; i < countries.length; i++) {
+//     //     Country.create({
+//     //         name: countries[i].name,
+//     //         id: countries[i].id,
+//     //         flag: countries[i].flag,
+//     //         continent: countries[i].continent,
+//     //         region: countries[i].region,
+//     //         capital: countries[i].capital,
+//     //         subregion: countries[i].subregion,
+//     //         area: countries[i].area,
+//     //         population:countries[i].population
+//     //     })
+//     // }
 //     console.log(countries);
 //     res.status(200).send('base de datos cargada')
 // })

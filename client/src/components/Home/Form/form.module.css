@@ -1,12 +1,16 @@
+.return{
+  left: 400px;
+}
 .containerForm {
   margin-left: 400px;
-  margin-top: 100px;
-  max-width: 600px;
-  max-height: 700px;
+  margin-top: 50px;
+  padding: 5px;
+  width: 500px;
+  height: auto;
+  max-height: 900px;
 
   display: flex;
   flex-direction: column;
-  /* flex-wrap: wrap; */
   justify-content: center;
   max-height: 500px;
 
@@ -20,6 +24,10 @@
   margin: 5px;
   position: relative;
 }
+.pnivel{
+  margin-top: -10px;
+  color: #39bda7;
+}
 
 .inputd {
   border: solid 1.5px #9e9e9e;
@@ -32,6 +40,7 @@
 }
 
 .inputdTime {
+  margin-top: 10px;
   border: solid 1.5px #9e9e9e;
   border-radius: 1rem;
   background: none;
@@ -61,7 +70,8 @@ inputdTemp:valid {
 .userLabel {
   position: absolute;
   left: 60px;
-  color: #000;
+  font-size: 1.5rem;
+  color: #39bda7;
   pointer-events: none;
   transform: translateY(1rem);
   transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -69,8 +79,9 @@ inputdTemp:valid {
 
 .userLabelTime {
   position: absolute;
-  left: 10px;
-  color: #000;
+  left: 90px;
+  font-size: 1.5rem;
+  color: #39bda7;
   pointer-events: none;
   transform: translateY(1rem);
   transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -78,12 +89,42 @@ inputdTemp:valid {
 
 .userLabelDif{
   position: absolute;
-  top: -40px,none;
-  left: 5px;
-  color: #000;
+  left: 90px;
+  font-size: 1.5rem;
+  color: #39bda7;
   pointer-events: none;
   transform: translateY(1rem);
   transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.inputGroupCountries {
+  margin: 5px;
+  margin-left: 110px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.userLabelCountries{
+  position: absolute;
+  left: -50px;
+  font-size: 1.5rem;
+  color: #39bda7;
+  pointer-events: none;
+  transform: translateY(1rem);
+  transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.internoCountries {
+  min-height: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 15px;
+  padding: 0 4px;
+  margin: 2px;
+  overflow-y: auto;
+  justify-content: center;
 }
 
 .inputdDif {
@@ -123,7 +164,7 @@ inputd:valid {
 
 .inputd:focus~label,
 inputd:valid~label {
-  transform: translateY(-70%) scale(0.8);
+  transform: translateY(-70%) translateX(50%) scale(0.8);
   background-color: #212121;
   padding: 0 .2em;
   color: #39bda7;
@@ -142,12 +183,30 @@ inputdDif:valid~label {
   color: #39bda7;
 }
 
+.inputGroupSeason {
+  margin: 5px;
+  margin-left: 180px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.userLabelSeason{
+  position: absolute;
+  left: -80px;
+  font-size: 1.5rem;
+  color: #39bda7;
+  pointer-events: none;
+  transform: translateY(1rem);
+  transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 
 .chip {
   min-height: 30px;
-  max-height: 50px;
+  max-height: 90px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   border-radius: 15px;
   padding: 0 4px;
@@ -174,4 +233,18 @@ inputdDif:valid~label {
 .create{
   margin-top: -50px;
   background-color: aqua;
+}
+
+.errors{
+  color: rgb(247, 3, 3);
+  font-size: 1rem;
+}
+
+.imgform{
+  width: 250px;
+  height: 250px;
+  position: absolute;
+  top: 150px;
+  left: 100px;
+  border-radius: 100%;
 }

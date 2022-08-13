@@ -3,8 +3,8 @@ const { Country, Activity } = require('../db')
 
 const getApiInfo = async () => {
     try{
-        const apiUrl = await axios.get('https://restcountries.com/v3/all');
-        const apiInfo = await apiUrl.data.map(e =>{
+        let apiInfo = await axios.get('https://restcountries.com/v3/all');
+        apiInfo = apiInfo.data.map(e =>{
         return{
             id: e.cca3,
 			name: e.name.common,
@@ -22,6 +22,5 @@ const getApiInfo = async () => {
         console.log(error)
     }
 }
-
 
 module.exports = getApiInfo;
