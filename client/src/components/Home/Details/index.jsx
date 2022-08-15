@@ -12,11 +12,10 @@ export default function Details() {
 
     const { id } = useParams();
     let detail = useSelector((state) => state.countriesDetail)
-    let detailActiviti = useSelector((state) => state.allActivity)
     const dispatch = useDispatch()
 
     useEffect(() => { dispatch(datailCountries(id)) }, [dispatch])
-    console.log("puede este", detail)
+    //console.log("puede este", detail)
 
     return (
         <>
@@ -49,12 +48,12 @@ export default function Details() {
                                     detail.Activities?.length ?
                                         detail?.Activities.map(a => {
                                             return (
-                                                <div className={s.carddd}>
-                                                    <div key={a.id} >
+                                                <div className={s.carddd} key={a.id} >
+                                                    <div>
                                                         <h3>{a.name}</h3>
                                                         <h5>Difficulty: {a.difficulty}</h5>
                                                         <h5>Duration: {a.duration} mins</h5>
-                                                        <h5>Season: {a.season}</h5>
+                                                        <h5>Season: {a.season.map(s=>{ return <p key={s.name}>{s}</p> })}</h5>
                                                     </div>
                                                 </div>
                                             )

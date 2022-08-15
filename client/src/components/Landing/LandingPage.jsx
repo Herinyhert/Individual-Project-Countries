@@ -12,7 +12,7 @@ export default function LandingPage() {
             </div>
             <div className={s.abs}>
                 <p>
-                Countries is an application where you will see information of the 250 existing countries today, you will find it filtering by continent, activities or directly by name, you can also see the tourist activities that each one has, being able to create or delete activities that can be done in one or in several countries in common
+                Tampoco  se so esta del todo bien jajaja cambie los will xq el will es como q puede hacer.. tiene la.voluntaad, pero despues ve, y el can es mas como q si hace...lo hace... y el done lo cambie xq tmb es como q hace referencia a algo hecho, pasado.
                 </p>
             </div>
         </>

@@ -119,7 +119,7 @@ export default function Home() {
                     <select className={s.seletActivity} onChange={e => handlefilterByActivities(e)}>
                         <option value="" disable selected hidden>{""}Tourist activities</option>
                         <option value="All">All</option>
-                        {activities.map((a) => (<option key={a.id} value={a.name}> {a.name} </option>))}
+                        {activities.map((a, i) => (<option key={i} value={a.name}> {a.name} </option>))}
                     </select>
                 </div>
             </div>
@@ -143,7 +143,7 @@ export default function Home() {
                         currentCountries &&
                         currentCountries.map(el => {
                             return (
-                                <fragment>
+                                <>
                                     <Link to={`/countries/${el.id}`}>
                                         <Card
                                             key={el.id}
@@ -155,7 +155,7 @@ export default function Home() {
                                             population={el.population}
                                         />
                                     </Link>
-                                </fragment>
+                                </>
                             )
 
                         }

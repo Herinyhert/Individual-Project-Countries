@@ -8,6 +8,7 @@ const CountryNameDB = require('../routes/getNameDb');
 const ActivityDb = require('../routes/postActivity')
 const GetActivity = require('../routes/getActivity')
 const DeleActivity = require('../routes/deleteActivity')
+const PutActivity = require('../routes/putActivity')
 
 const router = Router();
 
@@ -39,6 +40,7 @@ router.use('/countries', CountryDB);
 router.use('/countries', CountryNameDB);
 router.use('/activities', ActivityDb);
 router.use('/activities', GetActivity);
-//router.use('/activities', DeleActivity);
+router.use('/delete', DeleActivity);
+router.use('/put', PutActivity)
 
 module.exports = router;

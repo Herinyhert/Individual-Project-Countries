@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-
 import { useDispatch, useSelector } from "react-redux";
 import { createActivity } from "../../../redux/actions";
 import validate from "./controller";
@@ -24,8 +23,6 @@ export default function ActivityCreate() {
         country: [],
     })
 
-    // useEffect(() =>{ dispatch(getAllActivities()), []})
-
 
     function handleChange(e) {
         setInput({ ...input, [e.target.name]: e.target.value })
@@ -35,25 +32,27 @@ export default function ActivityCreate() {
 
     function handleSeletSeason(e) {
         console.log(e)
-        //const newInput = { ...input, season: [...input.season, e.target.value] }
-        //if(!input.season.includes(e.target.value)){ 
-        setInput({ ...input, season: [...input.season, e.target.value] })
-        setErrors(validate({ ...input, [e.target.name]: e.target.value },))
-        //}
+        if(!input.season.includes(e.target.value)){ 
+        const newInput = { ...input, season: [...input.season, e.target.value] }
+        setInput(newInput)
+        setErrors(validate(newInput))
+        }
+        e.target.value = "" 
     }
 
     function handleSelet(e) {
-        const newInput = { ...input, country: [...input.country, e.target.value] }
-        //if(!input.country.includes(e.target.value)){ 
-        setInput(newInput)
-        setErrors(validate(newInput))
-        //}
+        if(!input.country.includes(e.target.value)){
+            const neewInput = { ...input, country: [ ...input.country, e.target.value]}
+            setInput(neewInput);
+            setErrors(validate(neewInput));
+        }
+        e.target.value = "" 
     }
 
     function handleSubmit(e) {
         e.preventDefault(e)
         console.log(input)
-        if (Object.keys(errors).length == 0) {
+        if (Object.keys(errors).length === 0) {
             dispatch(createActivity(input))
             alert("Actividad Creada")
             setInput({
