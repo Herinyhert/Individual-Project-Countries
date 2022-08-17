@@ -184,7 +184,7 @@ inputdDif:valid~label {
 
 .inputGroupSeason {
   margin: 5px;
-  margin-left: 180px;
+  margin-left: 0px, none;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -192,12 +192,29 @@ inputdDif:valid~label {
 
 .userLabelSeason{
   position: absolute;
-  left: -80px;
+  left: 100px;
   font-size: 1.5rem;
   color: #39bda7;
   pointer-events: none;
   transform: translateY(1rem);
   transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bbInternoSeason{
+  /* background-color: #39bda7; */
+  width: 370px;
+  height: auto;
+  margin-left: 80px;
+  overflow: auto;
+}
+
+.bbInternoCountry{
+  /* background-color: #39bda7; */
+  max-width: 400px;
+  height: auto;
+  overflow: auto;
+  flex-direction: row;
+  align-items: center;
 }
 
 .chip {
@@ -209,7 +226,7 @@ inputdDif:valid~label {
   border-radius: 15px;
   padding: 0 4px;
   margin: 2px;
-  overflow-y: auto;
+  /* overflow-y: auto; */
 }
 
 .interno {

@@ -79,7 +79,7 @@ export default function Home() {
     return (
         <div className={s.home}>
             <div>
-                <a href="http://github.com/Herinyhert"><img src={github} alt="gitHub" className={s.imggit}/></a>
+                <Link to="http://github.com/Herinyhert"><img src={github} alt="gitHub" className={s.imggit}/></Link>
                 <a href="https://www.linkedin.com/in/herinyhert-martinez-7b5183126/"><img src={linkeding} alt="linquedin" className={s.imglink}/></a>
             </div>
             <div className={s.NavSup}><h1>Countries</h1>

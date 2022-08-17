@@ -120,6 +120,7 @@ export default function ActivityCreate() {
                                     <option value="autumn">Autumn</option>
                                 </select>
                             </div>
+                            <div className={s.bbInternoSeason}>
                             <div className={s.chip}>
                                 {input.season.map(el =>
                                     <span className={s.interno}>
@@ -127,6 +128,7 @@ export default function ActivityCreate() {
                                     </span>)}
 
                             </div>
+                            </div>   
                             {errors.season && (<p className={s.errors}>{errors.season}</p>)}
                         </div>
                         <div className={s.inputGroupCountries}>
@@ -139,6 +141,7 @@ export default function ActivityCreate() {
                                 ))}
                             </select>
                             </div>
+                            <div className={s.bbInternoCountry}>
                             <div className={s.chip}>
                                 {/* <ul><li>{input.country.map(el => el + ',')}</li></ul> */}
                                 {input.country.map(el =>
@@ -148,6 +151,7 @@ export default function ActivityCreate() {
                                                 onClick={(e) => onCloseCountries(e)}>{el}
                                             </button></span>
                                     </>)}
+                            </div>
                             </div>
                         </div>
                         {errors.id && (<p className={s.errors}>{errors.id}</p>)}
