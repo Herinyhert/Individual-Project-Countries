@@ -12,7 +12,10 @@ export default function LandingPage() {
             </div>
             <div className={s.abs}>
                 <p>
-                Tampoco  se so esta del todo bien jajaja cambie los will xq el will es como q puede hacer.. tiene la.voluntaad, pero despues ve, y el can es mas como q si hace...lo hace... y el done lo cambie xq tmb es como q hace referencia a algo hecho, pasado.
+                    Countries is an application where you can see information of the 250 existing countries today. 
+                    You can find it filtering by continent, activities or directly by name. You can also see the 
+                    tourist activities that each one has, being able to create activities that can be do 
+                    in one or in several countries in common.
                 </p>
             </div>
         </>

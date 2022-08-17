@@ -77,6 +77,16 @@ h5{
                 rgba(10, 37, 64, 0.35) 0px -2px 6px 0px;
 }
 
+.contendSeasonP{
+    background-color: aqua,none;
+    text-align: left;
+    margin-left: 30px;
+}
+
+.carddd p{
+    margin-top: 5px;
+    margin-bottom: -5px;
+}
 .sinActivity{
     margin: 40px 10px;
     width: 80%;

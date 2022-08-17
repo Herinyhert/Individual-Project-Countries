@@ -31,22 +31,22 @@ export default function ActivityCreate() {
     //console.log(input)
 
     function handleSeletSeason(e) {
-        console.log(e)
-        if(!input.season.includes(e.target.value)){ 
-        const newInput = { ...input, season: [...input.season, e.target.value] }
-        setInput(newInput)
-        setErrors(validate(newInput))
+        //console.log(e)
+        if (!input.season.includes(e.target.value)) {
+            const newInput = { ...input, season: [...input.season, e.target.value] }
+            setInput(newInput)
+            setErrors(validate(newInput))
         }
-        e.target.value = "" 
+        e.target.value = ""
     }
 
     function handleSelet(e) {
-        if(!input.country.includes(e.target.value)){
-            const neewInput = { ...input, country: [ ...input.country, e.target.value]}
+        if (!input.country.includes(e.target.value)) {
+            const neewInput = { ...input, country: [...input.country, e.target.value] }
             setInput(neewInput);
             setErrors(validate(neewInput));
         }
-        e.target.value = "" 
+        e.target.value = ""
     }
 
     function handleSubmit(e) {
@@ -96,7 +96,7 @@ export default function ActivityCreate() {
                             <input required="" type="range" min="1" max="5" className={s.inputdDif}
                                 value={input.difficulty} name="difficulty" onChange={(e) => handleChange(e)} />
                             <label className={s.userLabelDif}>Difficulty</label>
-                            <p className={s.pnivel}>Nivel: <span className={s.nivel}>{input.difficulty}</span></p>
+                            <p className={s.pnivel}>Level: <span className={s.nivel}>{input.difficulty}</span></p>
                             {errors.difficulty && (<p className={s.errors}>{errors.difficulty}</p>)}
                         </div>
 
@@ -109,25 +109,28 @@ export default function ActivityCreate() {
                         </div>
 
                         <div className={s.inputGroupSeason}>
-                            <label className={s.userLabelSeason}>Season</label>
-                            <select name="season" className={s.inputdTime}
-                                onChange={(e) => handleSeletSeason(e)}>
-                                <option value="" disable selected hidden>{""}Select</option>
-                                <option value="summer">Summer</option>
-                                <option value="winter">Winter</option>
-                                <option value="spring">Spring</option>
-                                <option value="autumn">Autumn</option>
-                            </select>
+                            <div>
+                                <label className={s.userLabelSeason}>Season</label>
+                                <select name="season" className={s.inputdTime}
+                                    onChange={(e) => handleSeletSeason(e)}>
+                                    <option value="" disable selected hidden>{""}Select</option>
+                                    <option value="summer">Summer</option>
+                                    <option value="winter">Winter</option>
+                                    <option value="spring">Spring</option>
+                                    <option value="autumn">Autumn</option>
+                                </select>
+                            </div>
                             <div className={s.chip}>
-                                <span>{input.season.map(el =>
+                                {input.season.map(el =>
                                     <span className={s.interno}>
                                         <button className={s.closeIcon} value={el} onClick={(e) => onClose(e)}>{el}</button>
                                     </span>)}
-                                </span>
+
                             </div>
                             {errors.season && (<p className={s.errors}>{errors.season}</p>)}
                         </div>
                         <div className={s.inputGroupCountries}>
+                            <div>
                             <label className={s.userLabelCountries}>Pais</label>
                             <select className={s.inputdTime} onChange={(e) => handleSelet(e)}>
                                 <option value="" disable selected hidden>Select a country</option>
@@ -135,15 +138,16 @@ export default function ActivityCreate() {
                                     <option value={c.name}> {c.name} </option>
                                 ))}
                             </select>
+                            </div>
                             <div className={s.chip}>
                                 {/* <ul><li>{input.country.map(el => el + ',')}</li></ul> */}
-                                <span>{input.country.map(el =>
+                                {input.country.map(el =>
                                     <>
                                         <span className={s.internoCountries}>
                                             <button className={s.closeIcon} value={el}
                                                 onClick={(e) => onCloseCountries(e)}>{el}
                                             </button></span>
-                                    </>)}</span>
+                                    </>)}
                             </div>
                         </div>
                         {errors.id && (<p className={s.errors}>{errors.id}</p>)}

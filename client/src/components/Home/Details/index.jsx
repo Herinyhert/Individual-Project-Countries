@@ -42,7 +42,7 @@ export default function Details() {
                             <h5>Poblacion:  {detail.population}</h5>
                         </div>
                         <div>
-                            <h1 className={s.h1Activitis}>ACTIVIDADES</h1>
+                            <h1 className={s.h1Activitis}>Activities</h1>
                             <div className={s.activity}>
                                 {
                                     detail.Activities?.length ?
@@ -53,15 +53,19 @@ export default function Details() {
                                                         <h3>{a.name}</h3>
                                                         <h5>Difficulty: {a.difficulty}</h5>
                                                         <h5>Duration: {a.duration} mins</h5>
-                                                        <h5>Season: {a.season.map(s=>{ return <p key={s.name}>{s}</p> })}</h5>
+                                                        <h5>Season: <div className={s.contendSeasonP}>
+                                                            {a.season.map(s => {
+                                                                return <p key={s.name}>-{s}</p>
+                                                            })}</div>
+                                                        </h5>
                                                     </div>
                                                 </div>
                                             )
                                         })
                                         :
                                         <div className={s.sinActivity}>
-                                            <h3> País sin actividad Turistica </h3>
-                                            <p>Puedes crear una actividad para este pais, desde el boton Crear</p>
+                                            <h3> Country without tourist activity </h3>
+                                            <p>You can create an activity for this country, from the Create button</p>
                                             <img className={s.imgSActivity} src={img} alt="imagen" />
                                         </div>
                                 }
@@ -69,7 +73,10 @@ export default function Details() {
                         </div>
                     </div>
 
-                    : <div className={s.errorId}> <h1>Error to detail the country searched</h1> <img src={img1} alt="error" className={s.imgErrorId} /></div>
+                    : <div className={s.errorId}>
+                        <h1>Error to detail the country searched</h1>
+                        <img src={img1} alt="error" className={s.imgErrorId} />
+                      </div>
                 }
                 {/* {console.log("estoy aqui", detail)} */}
             </div>

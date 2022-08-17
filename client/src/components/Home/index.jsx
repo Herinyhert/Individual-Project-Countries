@@ -34,9 +34,18 @@ export default function Home() {
 
     const paginado = (pageNumber) => setCurrentPage(pageNumber)
 
-    useEffect(() => { dispach(getCountries()) }, [dispach])
-    useEffect(() => { dispach(getAllActivities()) }, [dispach])
-
+    useEffect(() => {
+        dispach(getCountries())
+        dispach(getAllActivities())
+    }, [dispach])
+    
+    useEffect(() => {
+        if(allTodo){
+            if(currentPage > allTodo.length){
+                setCurrentPage(1)
+            }
+        }
+      }, [allTodo])
 
 
     function handleOnClick(e) {
@@ -66,7 +75,7 @@ export default function Home() {
         e.preventDefault();
         dispach(filterByActivity(e.target.value))
     }
-
+    console.log("yo",error)
     return (
         <div className={s.home}>
             <div>

@@ -15,9 +15,11 @@ export default function SearhBar(){
 
     function handleSubmit(e){
         e.preventDefault()
+        //if(name){
            dispatch(getNameCountries(name))
            console.log(name)
            setName("")
+        //} else{ alert('the search cannot be performed if you do not enter a name')}
     }
 
 
