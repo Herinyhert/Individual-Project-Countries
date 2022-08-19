@@ -6,17 +6,17 @@ const { Country, Activity } = require('../db')
 const getApiInfo = async () => {
     try{
         let apiInfo = await axios.get('https://restcountries.com/v3/all');
-        apiInfo = apiInfo.data.map(e =>{
+        apiInfo = apiInfo.data.map(c =>{
         return{
-            id: e.cca3,
-			name: e.name.common,
-			flag: e.flags[0],
-			capital: e.capital ? e.capital.toString() : "N/A",
-			region: e.region,
-			subregion: e.subregion,
-			area: e.area,
-			population: e.population,
-            continent: e.continents[0]
+            id: c.cca3,
+			name: c.name.common,
+			flag: c.flags[0],
+			capital: c.capital ? c.capital.toString() : "N/A",
+			region: c.region,
+			subregion: c.subregion,
+			area: c.area,
+			population: c.population,
+            continent: c.continents[0]
         }
     })
         await Country.bulkCreate(apiInfo)
@@ -27,53 +27,26 @@ const getApiInfo = async () => {
 
 //promise
 
-// const getApiInfo =  () => {
-//     // let urlInfo = axios.get("https://restcountries.com/v3/all");
-//     // urlInfo
-//     // .then((apiInfo) => { apiInfo.data.map((e) =>{
-//     //             return {
-//     //                 id: e.cca3,
-//     //     			name: e.name.common,
-//     //     			flag: e.flags[0],
-//     //     			capital: e.capital ? e.capital.toString() : "N/A",
-//     //     			region: e.region,
-//     //     			subregion: e.subregion,
-//     //     			area: e.area,
-//     //     			population: e.population,
-//     //                 continent: e.continents[0]
-//     //             } })
-//     //             .then(() => Country.bulkCreate(urlInfo))
-//     //             console.log(urlInfo)
-//     //         })
-//     //         .catch((e) => { console.log("Error"); })
-     
-    
-//     try {
-//         let apiCountries = axios.get("https://restcountries.com/v3/all");
-//         console.log(apiCountries)
-//          apiCountries
-//            .then((res) => {
-//              res.data.map((country) => {
-//                return {
-//                  name: country.name.common,
-//                  id: country.cca3,
-//                  flags: country.flags[0],
-//                  continents: country.continents[0],
-//                  capital: country.capital ? country.capital[0] : " ",
-//                  subregion: country.subregion,
-//                  area: country.area,
-//                  population: country.population,
-//                };
-//              })
-//              .then(()=> Country.bulkCreate(apiCountries));
-//              console.log("dos", apiCountries) 
-//            }).catch((error) => {
-//              console.log(error);
-//            }
-//            );
-//        } catch (error) {
-//          console.log(e)
-// }
-// }
+// const getApiInfo = () => {
+//     return axios
+//       .get("https://restcountries.com/v3/all")
+//       .then((res) => {
+//         const countrys = res.data.map((c) => {
+//           return {
+//             id: c.cca3,
+// 			name: c.name.common,
+// 			flag: c.flags[0],
+// 			capital: c.capital ? e.capital.toString() : "N/A",
+// 			region: c.region,
+// 			subregion: c.subregion,
+// 			area: c.area,
+// 			population: c.population,
+//             continent: c.continents[0]
+//           };
+//         });
+//         return countrys;
+//       })
+//       .catch((error) => console.log(error));
+//   };
 
 module.exports = getApiInfo;

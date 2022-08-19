@@ -13,6 +13,7 @@ export default function validate(input) {
 
     else if (input.season.length < 1) { errors.season = "You must identify at least one season"; }
     else if (input.country.length < 1) { errors.id = "You must enter at least one country"; }
+    else if (!input.gastronomia) { errors.gastronomia = "gastronomia is required"; }
 
 
     return errors;

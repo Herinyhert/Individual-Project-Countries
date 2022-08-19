@@ -21,6 +21,7 @@ export default function ActivityCreate() {
         duration: "",
         season: [],
         country: [],
+        gastronomia:""
     })
 
 
@@ -61,6 +62,7 @@ export default function ActivityCreate() {
                 duration: "",
                 season: [],
                 country: [],
+                gastronomia:""
             })
             history.push('/home')
         }
@@ -86,14 +88,14 @@ export default function ActivityCreate() {
                 <div>
                     <form >
                         <div className={s.inputGroup}>
-                            <input required="" type="text" autocomplete="off" className={s.inputd}
+                            <input required type="text" autocomplete="off" className={s.inputd}
                                 value={input.name} name="name" onChange={(e) => handleChange(e)} />
                             <label className={s.userLabel}>Name</label>
                             {errors.name && (<p className={s.errors}>{errors.name}</p>)}
                         </div>
 
                         <div className={s.inputGroup}>
-                            <input required="" type="range" min="1" max="5" className={s.inputdDif}
+                            <input required type="range" min="1" max="5" className={s.inputdDif}
                                 value={input.difficulty} name="difficulty" onChange={(e) => handleChange(e)} />
                             <label className={s.userLabelDif}>Difficulty</label>
                             <p className={s.pnivel}>Level: <span className={s.nivel}>{input.difficulty}</span></p>
@@ -143,7 +145,6 @@ export default function ActivityCreate() {
                             </div>
                             <div className={s.bbInternoCountry}>
                             <div className={s.chip}>
-                                {/* <ul><li>{input.country.map(el => el + ',')}</li></ul> */}
                                 {input.country.map(el =>
                                     <>
                                         <span className={s.internoCountries}>
@@ -155,6 +156,13 @@ export default function ActivityCreate() {
                             </div>
                         </div>
                         {errors.id && (<p className={s.errors}>{errors.id}</p>)}
+                        <div>
+                        <input required type="text" autocomplete="off" className={s.inputd}
+                                value={input.gastronomia} name="gastronomia" onChange={(e) => handleChange(e)} />
+                            <label className={s.userLabel}>Gastronomia</label>
+                            {errors.gastronomia && (<p className={s.errors}>{errors.gastronomia}</p>)}
+                        </div>
+
                     </form>
                     <button className={s.create} onClick={(e) => handleSubmit(e)}
                         disabled={Object.keys(errors).length !== 0}>to create

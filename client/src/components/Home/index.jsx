@@ -38,14 +38,14 @@ export default function Home() {
         dispach(getCountries())
         dispach(getAllActivities())
     }, [dispach])
-    
+
     useEffect(() => {
-        if(allTodo){
-            if(currentPage > allTodo.length){
+        if (allTodo) {
+            if (currentPage > allTodo.length) {
                 setCurrentPage(1)
             }
         }
-      }, [allTodo])
+    }, [allTodo])
 
 
     function handleOnClick(e) {
@@ -75,12 +75,12 @@ export default function Home() {
         e.preventDefault();
         dispach(filterByActivity(e.target.value))
     }
-    console.log("yo",error)
+    console.log("yo", error)
     return (
         <div className={s.home}>
             <div>
-                <Link to="http://github.com/Herinyhert"><img src={github} alt="gitHub" className={s.imggit}/></Link>
-                <a href="https://www.linkedin.com/in/herinyhert-martinez-7b5183126/"><img src={linkeding} alt="linquedin" className={s.imglink}/></a>
+                <a target="_blank" href="http://github.com/Herinyhert"><img src={github} alt="gitHub" className={s.imggit} /></a>
+                <a target="_blank" href="https://www.linkedin.com/in/herinyhert-martinez-7b5183126/"><img src={linkeding} alt="linquedin" className={s.imglink} /></a>
             </div>
             <div className={s.NavSup}><h1>Countries</h1>
                 <Link to="/activities"><button>New Activity</button></Link>
@@ -143,7 +143,7 @@ export default function Home() {
             <div className={s.cardd2}>
                 {
                     error
-                        ? 
+                        ?
                         <>
                             <h3 className={s.errorsh3}>The requested country name is not recognized</h3>
                             <button className={s.buttonError} onClick={e => handleOnClick(e)}>Perform new search</button>
