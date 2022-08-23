@@ -208,6 +208,16 @@ inputdDif:valid~label {
   overflow: auto;
 }
 
+.userLabelDescription{
+  position: absolute;
+  left: 410px;
+  font-size: 1.5rem;
+  color: #39bda7;
+  pointer-events: none;
+  transform: translateY(1rem);
+  transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .bbInternoCountry{
   /* background-color: #39bda7; */
   max-width: 400px;

@@ -32,13 +32,13 @@ const { Country, Activity } = require('../db');
 //Promise
 
 router.post("/", (req, res, next) => {
-    const { name, difficulty, duration, season, country, gastronomia } = req.body;
+    const { name, difficulty, duration, season, country, description } = req.body;
     //console.log(country)
-    if (!name || !difficulty || !duration || !season || !country || !gastronomia) {
+    if (!name || !difficulty || !duration || !season || !country || !description) {
         res.status(404).send("Falta  completar datos")
     }
 
-    Activity.create({ name, difficulty, duration, season, gastronomia })
+    Activity.create({ name, difficulty, duration, season, description })
         .then((newActivity) => {
             Country.findAll({ where: { name: country }, })
             .then((match) => {

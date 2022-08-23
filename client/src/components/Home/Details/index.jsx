@@ -58,6 +58,7 @@ export default function Details() {
                                                                 return <p key={s.name}>-{s}</p>
                                                             })}</div>
                                                         </h5>
+                                                        <h5>Description: {a.description}</h5>
                                                     </div>
                                                 </div>
                                             )

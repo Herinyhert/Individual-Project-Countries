@@ -158,9 +158,9 @@ export default function ActivityCreate() {
                         {errors.id && (<p className={s.errors}>{errors.id}</p>)}
                         <div>
                         <input required type="text" autocomplete="off" className={s.inputd}
-                                value={input.gastronomia} name="gastronomia" onChange={(e) => handleChange(e)} />
-                            <label className={s.userLabel}>Gastronomia</label>
-                            {errors.gastronomia && (<p className={s.errors}>{errors.gastronomia}</p>)}
+                                value={input.description} name="description" onChange={(e) => handleChange(e)} />
+                            <label className={s.userLabelDescription}>Description</label>
+                            {errors.description && (<p className={s.errors}>{errors.description}</p>)}
                         </div>
 
                     </form>
