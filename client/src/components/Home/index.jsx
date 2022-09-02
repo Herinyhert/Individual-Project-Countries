@@ -105,7 +105,7 @@ export default function Home() {
                     <input type="radio" name="ordenamiento1" value="des" onChange={e => handlePopulation(e)} />Falling
                 </div>
                 <div className={s.FilterCountries}>
-                    <label>Filter by Continent:</label>
+                    <label>Filter by Continents:</label>
                     <br />
                     <input type="radio" name="FilterCountries" value="All" onChange={e => handleOnClick(e)} />All
                     <br />
