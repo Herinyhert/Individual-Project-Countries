@@ -12,7 +12,7 @@ router.get('/:id', async (req,res) => {
 
     countriesss
         ? res.status(200).send(countriesss)
-        : res.status(404).send('no existe id buscado');
+        : res.status(404).send('no existe id solicitado');
 });
 
 
