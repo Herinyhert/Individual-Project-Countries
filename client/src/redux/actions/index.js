@@ -23,7 +23,7 @@ export function getCountries(){
 export function getNameCountries(name){
     return async function(dispatch){
         try {
-            let json = await axios.get("http://db-countries.herokuapp.com/countries?name=" + name,{});
+            let json = await axios.get("https://db-countries.herokuapp.com/countries?name=" + name,{});
             return dispatch({
                 type: GET_NAME_COUNTRIES,
                 payload: json.data
@@ -37,7 +37,7 @@ export function getNameCountries(name){
 
 export function getAllActivities(){
     return async (dispatch) => {
-        var json = await axios.get('http://db-countries.herokuapp.com/activities')
+        var json = await axios.get('https://db-countries.herokuapp.com/activities')
        return dispatch({ type: GET_ALL_ACTIVITIES, payload: json.data})}
 }
 
@@ -49,7 +49,7 @@ export function datailCountries(payload){
 
 export function createActivity(payload){
     return async function(){
-        let json = await axios.post("http://db-countries.herokuapp.com/activities", payload);
+        let json = await axios.post("https://db-countries.herokuapp.com/activities", payload);
         return ({ type: CREATE_ACTIVITY, payload: json.data })
     }
 }

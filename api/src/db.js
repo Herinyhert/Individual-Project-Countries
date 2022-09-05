@@ -4,39 +4,7 @@ const fs = require("fs");
 const path = require("path");
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME = "countries" } = process.env;
 
-// const sequelize =
-//   process.env.NODE_ENV === "production"
-//   ?
-//   new Sequelize({
-//         database: DB_NAME,
-//         dialect: "postgres",
-//         host: DB_HOST,
-//         port: 5432,
-//         username: DB_USER,
-//         password: DB_PASSWORD,
-//         pool: {
-//           max: 3,
-//           min: 1,
-//           idle: 10000,
-//         },
-//         dialectOptions: {
-//           ssl: {
-//             require: true,
-//             // Ref.: https://github.com/brianc/node-postgres/issues/2009
-//             rejectUnauthorized: false,
-//           },
-//           keepAlive: true,
-//         },
-//         ssl: true,
-//       })
-//     : new Sequelize(
-//         `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries`,
-//         { logging: false, native: false }
-//       );
-
 const sequelize = new Sequelize(
-  //`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:5432/${DB_NAME}`,
-  // "postgres://yxusktljirigxe:afd181aa81f5c50a1fe1425cdaf402ecf5cbad5f5b896fd09fba5f0af64980b3@ec2-34-199-68-114.compute-1.amazonaws.com:5432/d2tmphkmp6pvnd",
   {
     database: DB_NAME,
     dialect: "postgres",
