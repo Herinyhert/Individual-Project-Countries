@@ -55,7 +55,7 @@ export function createActivity(payload){
 }
 
 export function orderPopulation(payload){
-    retur { type: ORDER_POPULATION, payload }
+    return { type: ORDER_POPULATION, payload }
 }
 
 export function orderName(payload){
